@@ -23,7 +23,7 @@ jobs:
       - name: build website
         run: 
           yarn install --frozen-lockfile
-          yarn add remark-math@6 rehype-katex@7
+          yarn add yarn install remark-math@6 rehype-katex@7 
           yarn build
 
       - name: Deploy to my Github Pages
