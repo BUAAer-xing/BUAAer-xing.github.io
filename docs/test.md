@@ -86,3 +86,6 @@ $\text{利用}\sigma_{i}=\sqrt{\lambda_{i}}\text{，i=1，2，求得奇异值为
 $$
 \left.A=U\Sigma V^T=\left(\begin{array}{ccc}1/\sqrt{6}&1/\sqrt{2}&1/\sqrt{3}\\2/\sqrt{6}&0&-1/\sqrt{3}\\1/\sqrt{6}&-1/\sqrt{2}&1/\sqrt{3}\end{array}\right.\right)\left(\begin{array}{cc}\sqrt{3}&0\\0&1\\0&0\end{array}\right) {\binom{1/\sqrt{2} \quad {1/\sqrt{2}}}{-1/\sqrt{2} \quad {1/\sqrt{2}}} }
 $$
+
+
+测试自动化配置是否成功

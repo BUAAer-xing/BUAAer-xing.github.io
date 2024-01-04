@@ -21,7 +21,7 @@ jobs:
           cache-dependency-path: './package-lock.json'
 
       - name: build website
-        run: |
+        run: 
           yarn install --frozen-lockfile
           yarn add remark-math@6 rehype-katex@7
           yarn build
