@@ -5,7 +5,7 @@ name: GitHub Pages
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
 
 jobs:
@@ -16,13 +16,14 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: '20'
+          node-version: '18'
           cache: yarn
           cache-dependency-path: './package-lock.json'
 
       - name: build website
         run: |
           yarn install --frozen-lockfile
+          yarn add remark-math@3 rehype-katex@5 hast-util-is-element@1.1.0
           yarn build
 
       - name: Deploy to my Github Pages
