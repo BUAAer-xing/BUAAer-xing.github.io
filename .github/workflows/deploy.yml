@@ -22,7 +22,7 @@ jobs:
 
       - name: build website
         run: 
-          yarn install --frozen-lockfile
+          yarn add 
           yarn add remark-math@6 rehype-katex@7 
           yarn build
 
