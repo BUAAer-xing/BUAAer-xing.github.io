@@ -21,8 +21,10 @@ module.exports = async function createConfigAsync() {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'BUAAer-xing', // Usually your GitHub org/user name.
+  projectName: 'BUAAer-xing.github.io', // Usually your repo name.
+  deploymentBranch: 'gh-pages',
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
