@@ -11,7 +11,7 @@ module.exports = async function createConfigAsync() {
   return{
   title: 'BUAAer-xing Blog',
   tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/icon.png',
 
   // Set the production url of your site here
   url: 'https://buaaer-xing.github.io/',
@@ -36,7 +36,6 @@ module.exports = async function createConfigAsync() {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
   presets: [
     [
       'classic',
@@ -53,6 +52,8 @@ module.exports = async function createConfigAsync() {
         },
         blog: {
           showReadingTime: true,
+          blogSidebarTitle: '记录一些零碎的知识',
+          blogSidebarCount: 'ALL',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           remarkPlugins: [(await import('remark-math')).default],
@@ -66,9 +67,6 @@ module.exports = async function createConfigAsync() {
       }),
     ],
   ],
-
-
-
   stylesheets: [
     {
       href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
@@ -78,8 +76,7 @@ module.exports = async function createConfigAsync() {
       crossorigin: 'anonymous',
     },
   ],
-
-
+  
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -97,6 +94,12 @@ module.exports = async function createConfigAsync() {
             docId: 'paper_notes/paper-notes-intro',
             position: 'left',
             label: '论文笔记',
+          },
+          {
+            type: 'doc',
+            docId: 'week_report/week_report_intro',
+            position: 'left',
+            label: '周报汇总',
           },
           {
             type: 'doc',
@@ -128,8 +131,20 @@ module.exports = async function createConfigAsync() {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: '论文笔记',
+                to: 'docs/paper-notes-intro',
+              },
+              {
+                label: '个人博客',
+                to: 'docs/blogs-intro',
+              },
+              {
+                label: '相关内容',
+                to: 'blog',
+              },
+              {
+                label: '个人简历',
+                to: 'resume',
               },
             ],
           },
@@ -137,16 +152,8 @@ module.exports = async function createConfigAsync() {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                label: 'Telegram',
+                href: 'https://t.me/cx_cst',
               },
             ],
           },
@@ -154,17 +161,17 @@ module.exports = async function createConfigAsync() {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
+                label: 'CSDN',
+                to: 'https://blog.csdn.net/qq_45575167',
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/NEUQer-xing',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} BUAAer-xing, 此网站使用 Docusaurus 进行构建✨`,
       },
       docs: {
         sidebar: {
@@ -174,6 +181,29 @@ module.exports = async function createConfigAsync() {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+      },
+      algolia: {
+        // The application ID provided by Algolia
+        appId: 'YOUR_APP_ID',
+  
+        // Public API key: it is safe to commit it
+        apiKey: 'YOUR_SEARCH_API_KEY',
+  
+        indexName: 'YOUR_INDEX_NAME',
+  
+        // Optional: see doc section below
+        contextualSearch: true,
+  
+        // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
+        externalUrlRegex: 'external\\.com|domain\\.com',
+  
+        // Optional: Algolia search parameters
+        searchParameters: {},
+  
+        // Optional: path for search page that enabled by default (`false` to disable it)
+        searchPagePath: 'search',
+  
+        //... other Algolia params
       },
     }),
   };
