@@ -1,5 +1,5 @@
 ---
-sidebar_position: 0
+sidebar_position: 1
 id: paper-notes-intro
 title: 笔记说明
 slug: /paper-notes-intro
@@ -12,5 +12,3 @@ slug: /paper-notes-intro
 | HYCOM | 有关HYCOM的笔记📒以及相关文档📄 |
 | LU | 关于LU分解的论文以及论文阅读笔记，目前主要整理了SuperLU以及PanguLU |
 | Kernal | 关于并行计算内核以及优化存储格式方面的论文以及笔记 |
-
-
