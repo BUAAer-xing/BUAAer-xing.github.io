@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 0
 id: paper-notes-intro
 title: 笔记说明
 slug: /paper-notes-intro
