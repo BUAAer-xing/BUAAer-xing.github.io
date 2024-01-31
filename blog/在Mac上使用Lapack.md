@@ -25,7 +25,7 @@ authors:
 
 `brew install lapack` 
 
-这里为何仅仅安装lapack呢？是因为**lapacke所包含的代码已经集成到lapack中了**，如果想要使用lapacke就必须带着lapack一起进行安装。[Lapack官网](https://www.netlib.org/lapack/)的解释如下：<**LAPAСK C INTERFACE is now included in the LAPACK package (in the lapacke directory)**>
+这里为何仅仅安装lapack呢？是因为**lapacke所包含的代码已经集成到lapack中了**，如果想要使用lapacke就必须带着lapack一起进行安装。[Lapack官网](https://www.netlib.org/lapack/)的解释如下：**LAPAСK C INTERFACE is now included in the LAPACK package (in the lapacke directory)**
 
 ![image.png|center|800](https://cdn.jsdelivr.net/gh/NEUQer-xing/Markdown_images@master/images-2/20240131102328.png)
 
