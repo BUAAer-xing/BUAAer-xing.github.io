@@ -166,7 +166,7 @@ module.exports = async function createConfigAsync() {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/NEUQer-xing',
+                href: 'https://github.com/BUAAer-xing',
               },
             ],
           },
