@@ -118,7 +118,7 @@ module.exports = async function createConfigAsync() {
             position: 'left'
           },
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/BUAAer-xing/BUAAer-xing.github.io',
             label: 'GitHub',
             position: 'right',
           },
