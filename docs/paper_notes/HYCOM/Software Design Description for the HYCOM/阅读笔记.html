@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-paper_notes/HYCOM/Software Design Description for the HYCOM/阅读笔记" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.1.1">
+<title data-rh="true">阅读笔记 | BUAAer-xing Blog</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://buaaer-xing.github.io/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://buaaer-xing.github.io/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://buaaer-xing.github.io/docs/paper_notes/HYCOM/Software Design Description for the HYCOM/阅读笔记"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="阅读笔记 | BUAAer-xing Blog"><meta data-rh="true" name="description" content="文章摘要"><meta data-rh="true" property="og:description" content="文章摘要"><link data-rh="true" rel="icon" href="/img/icon.png"><link data-rh="true" rel="canonical" href="https://buaaer-xing.github.io/docs/paper_notes/HYCOM/Software Design Description for the HYCOM/阅读笔记"><link data-rh="true" rel="alternate" href="https://buaaer-xing.github.io/docs/paper_notes/HYCOM/Software Design Description for the HYCOM/阅读笔记" hreflang="en"><link data-rh="true" rel="alternate" href="https://buaaer-xing.github.io/docs/paper_notes/HYCOM/Software Design Description for the HYCOM/阅读笔记" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://YOUR_APP_ID-dsn.algolia.net" crossorigin="anonymous"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="BUAAer-xing Blog RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="BUAAer-xing Blog Atom Feed">
+
+
+
+<link rel="search" type="application/opensearchdescription+xml" title="BUAAer-xing Blog" href="/opensearch.xml">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.36ce3aab.css">
+<script src="/assets/js/runtime~main.6b4dc616.js" defer="defer"></script>
+<script src="/assets/js/main.3bd1f484.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/icon.png" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/icon.png" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Home</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/paper-notes-intro">论文笔记</a><a class="navbar__item navbar__link" href="/docs/week_report/week_report_intro">周报汇总</a><a class="navbar__item navbar__link" href="/docs/blogs-intro">个人博客</a><a class="navbar__item navbar__link" href="/blog">相关内容</a><a class="navbar__item navbar__link" href="/resume">个人简历</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/BUAAer-xing/BUAAer-xing.github.io" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><button type="button" class="DocSearch DocSearch-Button" aria-label="Search"><span class="DocSearch-Button-Container"><svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 20 20"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="DocSearch-Button-Placeholder">Search</span></span><span class="DocSearch-Button-Keys"></span></button></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/paper-notes-intro">笔记说明</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" aria-expanded="true" href="/docs/paper_notes/HYCOM/HYCOM概述">HYCOM</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/paper_notes/HYCOM/HYCOM概述">HYCOM概述</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" aria-expanded="true" tabindex="0" href="/docs/paper_notes/HYCOM/Software Design Description for the HYCOM/论文原件">Software Design Description for the HYCOM</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/paper_notes/HYCOM/Software Design Description for the HYCOM/论文原件">论文原件</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/paper_notes/HYCOM/Software Design Description for the HYCOM/阅读笔记">阅读笔记</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" tabindex="0" href="/docs/paper_notes/HYCOM/HYCOM V2.1 Users guide/论文原件">HYCOM V2.1 Users guide</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" tabindex="0" href="/docs/paper_notes/HYCOM/HYCOM v2.0 User Manual/论文原件">HYCOM v2.0 User Manual</a></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/docs/paper_notes/LU/intro">LU</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/docs/paper_notes/Kernel/intro">Kernel</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/docs/paper_notes/未分类/intro">未分类</a></div></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_kv0_"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">HYCOM</span><meta itemprop="position" content="1"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Software Design Description for the HYCOM</span><meta itemprop="position" content="2"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">阅读笔记</span><meta itemprop="position" content="3"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1>阅读笔记</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="文章摘要">文章摘要<a href="#文章摘要" class="hash-link" aria-label="Direct link to 文章摘要" title="Direct link to 文章摘要">​</a></h2>
+<p>本文描述了HYbrid Coordinate Ocean Model（HYCOM）2.2版本的软件设计和代码。其中包括HYCOM 2.2的数学表达和解决方案流程，以及程序、模块和子程序的流程图和描述。</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="第一章-scope">第一章 SCOPE<a href="#第一章-scope" class="hash-link" aria-label="Direct link to 第一章 SCOPE" title="Direct link to 第一章 SCOPE">​</a></h2>
+<p>“The vertical coordinates are isopycnal in the open, stratified ocean, but use the layered continuity equation to make a dynamically smooth transition to terrain-following coordinates in shallow coastal regions, and to z-level coordinates in the mixed layer and/or unstratified seas.” <strong>hycom 模型</strong>在描述垂直坐标上使用了三种坐标，分别是 z坐标、等浓度坐标、sigma坐标。</p>
+<p>![[0-HYCOM概述##垂直坐标]]</p>
+<p>HYCOM的开发目的：解决目前的系统在浅水区和从深水到浅水的过渡中存在严重限制的问题。 ^e0593e</p>
+<p>HYCOM的原型本来是一个名为‘energy loan’的ice model，后来将Polar Ice Prediction System 3.0与the Earth System Modeling Framework (ESMF)进行结合，从而使得模型可以更加准确地考虑到海洋和冰界面上的动量、热量和盐度通量等参数。模型的最后一部分是the Navy Coupled Ocean Data Assimilation (NCODA)。NCODA是一个多元最优插值方案，用于[[0-HYCOM概述##^0d6624|同化]]卫星的观测数据。通过将这些观测结果与数据同化相结合，并利用模型的动力学插值技术，可以更准确地现在预测和预报三维海洋状态。</p>
+<p>HYCOM模型主要有五种主要的垂直坐标的混合算法，其中，三种是连续微分模型，两种是[[bulk(slab)model|bulk(slab)模型]]。  ^5d8101</p>
+<p><img decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/NEUQer-xing/Markdown_images@master/images-2/20230705160431.png" alt="" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="第二章-referenced-documents">第二章 REFERENCED DOCUMENTS<a href="#第二章-referenced-documents" class="hash-link" aria-label="Direct link to 第二章 REFERENCED DOCUMENTS" title="Direct link to 第二章 REFERENCED DOCUMENTS">​</a></h2>
+<p>略过</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="第三章-hycom-22-software-summary">第三章 HYCOM 2.2 SOFTWARE SUMMARY<a href="#第三章-hycom-22-software-summary" class="hash-link" aria-label="Direct link to 第三章 HYCOM 2.2 SOFTWARE SUMMARY" title="Direct link to 第三章 HYCOM 2.2 SOFTWARE SUMMARY">​</a></h2>
+<p>软件概要：主要介绍了HYCOM2.2版本集成了2.1版本的特性，同时做了哪些改进。</p>
+<p>2.1版本的特性有：</p>
+<ul>
+<li>[[Orthogonal curvilinear grids]]</li>
+<li>Emulation of Z, Sigma or Sigma-Z models.</li>
+<li>KPP, Mellor-Yamada 2.5, Price-Weller Pinkel or Kraus-Turner mixed layer models.</li>
+<li>Multiple tracers.</li>
+<li>Off-line one-way nesting.</li>
+</ul>
+<p>HYCOM 2.2相对于HYCOM 2.1进行了以下改进：</p>
+<ol>
+<li>
+<p>替代标量平流技术：HYCOM 2.2引入了Donor Cell、FCT（2阶和4阶）以及MPDATA的替代标量平流技术。在这些技术中，FCT2取代MPDATA成为标准方案。</p>
+</li>
+<li>
+<p>垂直重映射改进：HYCOM 2.2使用分段线性方法（PLM）进行固定坐标层的垂直重映射。稳定性是根据局部参考的潜在密度计算的，并且层目标密度是空间变化的，半封闭海域中使用不同的等密线层。</p>
+</li>
+<li>
+<p>GISS混合层模型的整合：HYCOM 2.2将GISS混合层模型纳入其中。</p>
+</li>
+<li>
+<p>大气强迫改进：大气强迫包括输入ustar场的选项。用户还可以通过弛豫到观测到的海表温度场来调整模型。COARE 3.0的散热系数已经改进。</p>
+</li>
+<li>
+<p>气候学热通量偏移：引入了气候学热通量偏移（Qc）。这是一个应用在海洋表面以减少全球平均海表温度偏差的热通量偏移（单位为W/m2）。该偏移基于观测与HYCOM 2.2模拟之间的平均温度误差。约45 W/m2的热通量偏移将导致海表温度变化约1°C。</p>
+</li>
+<li>
+<p>对河流的改进支持：河流被表示为虚假的地表降水。模型将河流视为地表降水场的一种“径流”补充。月平均河流流量值根据Perry等人（1996）构建，并为每条河流生成一个平均值。该数据集被转换为用于海洋建模研究的月值（Barron和Smedstad，2002）。</p>
+</li>
+<li>
+<p>降水的淡化作用：降水作为淡水表面通量，从而降低顶层的盐度。</p>
+</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="第四章-hycom-22-software-inventory">第四章 HYCOM 2.2 SOFTWARE INVENTORY<a href="#第四章-hycom-22-software-inventory" class="hash-link" aria-label="Direct link to 第四章 HYCOM 2.2 SOFTWARE INVENTORY" title="Direct link to 第四章 HYCOM 2.2 SOFTWARE INVENTORY">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="软件组成">软件组成<a href="#软件组成" class="hash-link" aria-label="Direct link to 软件组成" title="Direct link to 软件组成">​</a></h3>
+<p>软件详情：HYCOM通过一系列的模块、makefile、输入文件和脚本进行运行。</p>
+<p>运行方法和介绍在[[hycom_users_manual.pdf|用户手册]]中进行介绍</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="源文件">源文件<a href="#源文件" class="hash-link" aria-label="Direct link to 源文件" title="Direct link to 源文件">​</a></h4>
+<p><img decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/NEUQer-xing/Markdown_images@master/images-2/20230727211559.png" alt="image.png|center|1000" class="img_ev3q"></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="子程序">子程序<a href="#子程序" class="hash-link" aria-label="Direct link to 子程序" title="Direct link to 子程序">​</a></h4>
+<p><img decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/NEUQer-xing/Markdown_images@master/images-2/20230727211634.png" alt="image.png|center|1000" class="img_ev3q"></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="公共块">公共块<a href="#公共块" class="hash-link" aria-label="Direct link to 公共块" title="Direct link to 公共块">​</a></h4>
+<p>命名公共块在 common_blocks.h 文件中定义，并从多个 HYCOM 2.2 子例程中调用。</p>
+<p><img decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/NEUQer-xing/Markdown_images@master/images-2/20230727211742.png" alt="image.png|center|1000" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="软件组织和实现">软件组织和实现<a href="#软件组织和实现" class="hash-link" aria-label="Direct link to 软件组织和实现" title="Direct link to 软件组织和实现">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="目录结构">目录结构<a href="#目录结构" class="hash-link" aria-label="Direct link to 目录结构" title="Direct link to 目录结构">​</a></h4>
+<p>首先，HYCOM 2.2的设置是独立于domain的，除了模型代码以外的<strong>所有预处理和后处理程序只编译一次</strong>。</p>
+<p>模型代码必须针对每个新的领域重新编译，但只有一个文件，即dimensions.h，是区域特定的。</p>
+<p>模型脚本被配置为允许数据文件（输入和输出）驻留在不同的机器上。</p>
+<p>实际运行从一个临时目录开始，并使用与pget和pput环境变量相关联的命令将文件从临时存储复制到永久存储（可能在另一台机器上）。</p>
+<p>目录/hycom/ALL包含了运行HYCOM 2.2所需的所有独立于domain的预处理和后处理程序。</p>
+<p>这些程序位于以下子目录中：</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="第五章-hycom-22-detailed-design">第五章 HYCOM 2.2 DETAILED DESIGN<a href="#第五章-hycom-22-detailed-design" class="hash-link" aria-label="Direct link to 第五章 HYCOM 2.2 DETAILED DESIGN" title="Direct link to 第五章 HYCOM 2.2 DETAILED DESIGN">​</a></h2>
+<p>以下部分详细描述了模型中软件元素的目的，变量，逻辑和约束条件。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="限制和约束">限制和约束<a href="#限制和约束" class="hash-link" aria-label="Direct link to 限制和约束" title="Direct link to 限制和约束">​</a></h3>
+<p>海面温度是顶部薄层的平均温度，通常为3米厚度。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="hycom的逻辑和基本方程式">HYCOM的逻辑和基本方程式<a href="#hycom的逻辑和基本方程式" class="hash-link" aria-label="Direct link to HYCOM的逻辑和基本方程式" title="Direct link to HYCOM的逻辑和基本方程式">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="hycom的边界条件">HYCOM的边界条件<a href="#hycom的边界条件" class="hash-link" aria-label="Direct link to HYCOM的边界条件" title="Direct link to HYCOM的边界条件">​</a></h4>
+<p>HYCOM 2.2 模型配置了两种类型的边界条件</p>
+<ol>
+<li>Newtonian relaxation in sponge layers</li>
+<li>full open-ocean boundary conditions</li>
+</ol>
+<p>第5.2.1节主要介绍了HYCOM模型中的边界条件处理方法,包含两类边界条件:</p>
+<ol>
+<li>松弛边界条件(Relaxation Boundary Conditions)</li>
+</ol>
+<ul>
+<li>
+<p>在边界缓冲带内使用牛顿弛豫法强制变量回落到预定场</p>
+</li>
+<li>
+<p>可用于任意子域,或与外部数据结合以提供开放边界条件</p>
+</li>
+<li>
+<p>可放松温度、盐度、密度到climatology场</p>
+</li>
+</ul>
+<ol start="2">
+<li>开放边界条件(Open Boundary Conditions)</li>
+</ol>
+<ul>
+<li>
+<p>不区分进入和流出边界</p>
+</li>
+<li>
+<p>分别处理无压模态和有压模态</p>
+</li>
+<li>
+<p>无压模态使用特征线方法</p>
+</li>
+<li>
+<p>有压模态指定法向速度和通量</p>
+</li>
+<li>
+<p>在边界带内使用各向异性增强和层厚变化阻尼</p>
+</li>
+<li>
+<p>提供平滑的边界处理</p>
+</li>
+</ul>
+<p>总之,该节全面描述了HYCOM处理边界条件的思路,既可用于限制性的边界,也可用于开放性的交互边界,保证了数值稳定性。</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="松弛边界条件">松弛边界条件<a href="#松弛边界条件" class="hash-link" aria-label="Direct link to 松弛边界条件" title="Direct link to 松弛边界条件">​</a></h5>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="开放边界条件">开放边界条件<a href="#开放边界条件" class="hash-link" aria-label="Direct link to 开放边界条件" title="Direct link to 开放边界条件">​</a></h5>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="hycom-22-内部垂向混合-diapycnal-mixing-️️">HYCOM 2.2 内部垂向混合 （Diapycnal mixing） ⭐️⭐️<a href="#hycom-22-内部垂向混合-diapycnal-mixing-️️" class="hash-link" aria-label="Direct link to HYCOM 2.2 内部垂向混合 （Diapycnal mixing） ⭐️⭐️" title="Direct link to HYCOM 2.2 内部垂向混合 （Diapycnal mixing） ⭐️⭐️">​</a></h4>
+<p><img decoding="async" loading="lazy" src="https://cdn.jsdelivr.net/gh/NEUQer-xing/Markdown_images@master/images-2/20230727215939.png" alt="image.png" class="img_ev3q"></p>
+<p>(<a href="zotero://open-pdf/library/items/8NSD5YQ9?page=19&amp;annotation=Z7MBT6HI" target="_blank" rel="noopener noreferrer">pdf</a>)</p>
+<p>主要介绍了HYCOM模型中参数化内部海洋垂向混合的几种算法。</p>
+<ol>
+<li>KPP隐式算法:</li>
+</ol>
+<ul>
+<li>参数化剪切不稳定、内波和双扩散的贡献</li>
+<li>计算梯度理查森数控制混合强度</li>
+<li>采用隐式数值算法求解</li>
+</ul>
+<ol start="2">
+<li>显式混合坐标算法:</li>
+</ol>
+<ul>
+<li>计算层间热量、盐量和质量通量</li>
+<li>根据通量更新层厚度、温盐</li>
+<li>迭代求解,密度收敛</li>
+<li>处理数值稳定性</li>
+</ul>
+<ol start="3">
+<li>显式等密度坐标算法:</li>
+</ol>
+<ul>
+<li>和混合坐标算法原理相同</li>
+<li>但是只混合盐量,温度积分求解</li>
+<li>保持层密度恒定</li>
+</ul>
+<p>综上,HYCOM提供了多种内部海洋垂向混合算法,含隐式和显式数值方法,用户可以根据需求选择。它们是维持密度结构稳定性的关键。</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="model-1--hybrid-coordinate-implicit-algorithm-interior-mixing-from-kpp">Model 1 : Hybrid Coordinate Implicit Algorithm (Interior Mixing From KPP)<a href="#model-1--hybrid-coordinate-implicit-algorithm-interior-mixing-from-kpp" class="hash-link" aria-label="Direct link to Model 1 : Hybrid Coordinate Implicit Algorithm (Interior Mixing From KPP)" title="Direct link to Model 1 : Hybrid Coordinate Implicit Algorithm (Interior Mixing From KPP)">​</a></h5>
+<p><strong>混合坐标隐式算法</strong></p>
+<p>这个模型使用了内部海洋模型的KPP垂直混合算法。</p>
+<p>模型变量被分解为平均值（用上划线表示）和湍流（用撇号表示）两个组成部分。</p>
+<p>混合坐标(Hybrid Coordinate):指在计算中同时使用两种或多种不同类型的坐标系统,比如笛卡尔坐标、极坐标等。</p>
+<p>隐式算法(Implicit Algorithm):相对于显式算法而言,<strong>隐式算法通过构建方程组来表达变量之间的关系</strong>,并通过<strong>迭代求解方程组</strong>来推进计算过程。</p>
+<p>综合起来,“混合坐标隐式算法”可以理解为:</p>
+<p>一种同时采用两种或多种坐标表示的隐式计算方法,它<strong>通过建立变量间的方程组并迭代求解的方式推进计算</strong>。</p>
+<p>这种算法融合了不同坐标系统的优点,并通过隐式算法的迭代过程求解复杂的计算问题。</p>
+<p>其基本思路是:</p>
+<ol>
+<li>
+<p>分别计算各个物理过程对模型变量增益的贡献,即各向异性扩散系数。</p>
+</li>
+<li>
+<p>将各项物理过程的总贡献合并为一个增益矩阵。</p>
+</li>
+<li>
+<p>将原始的模型变量写成一个向量。</p>
+</li>
+<li>
+<p>将原始变量向量与增益矩阵相乘,得到更新后的变量向量。</p>
+</li>
+<li>
+<p>重复上述步骤直到收敛。</p>
+</li>
+</ol>
+<p>这种算法的主要特点是:</p>
+<ol>
+<li>
+<p>采用矩阵形式表示各物理过程的相互作用。</p>
+</li>
+<li>
+<p>一次求解扩散方程,直接更新模型变量。</p>
+</li>
+<li>
+<p><strong>迭代求解,以保证精度</strong>。</p>
+</li>
+</ol>
+<p>与显式算法相比,<strong>隐式算法通过合并各物理过程的作用,采用矩阵迭代求解的方式,可以增加数值稳定性</strong>。</p>
+<p>但==隐式算法需要构建矩阵和迭代求解,计算量较大==。</p>
+<p>总这是一种<strong>利用矩阵表示和迭代求解的隐式混合坐标垂直混合</strong>算法。它提供了一种新的数值处理方式来解决混合坐标下的物理过程耦合问题。</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="model-2-hybrid-coordinate-explicit-algorithm">Model 2: Hybrid Coordinate Explicit Algorithm<a href="#model-2-hybrid-coordinate-explicit-algorithm" class="hash-link" aria-label="Direct link to Model 2: Hybrid Coordinate Explicit Algorithm" title="Direct link to Model 2: Hybrid Coordinate Explicit Algorithm">​</a></h5>
+<p>混合坐标显式算法</p>
+<p>显式算法(Explicit Algorithm):直接表达变量之间的关系,<strong>每个变量的值直接依据前一时刻变量的值计算得到,迭代次数较少。</strong></p>
+<p>综合起来,“混合坐标显式算法”可以理解为:</p>
+<p>一种同时使用多种坐标系统的直接计算算法,它通过直接表达变量间的关系,并根据前一时刻变量值快速迭代计算得到当前变量值,降低迭代次数。</p>
+<p>相比隐式算法,这种算法<strong>计算效率更高</strong>,但是稳定性较差。</p>
+<p>Hybrid Coordinate Explicit Algorithm 是HYCOM模型中的一种垂直混合算法,用于混合坐标系统。</p>
+<p>混合坐标系统同时包含了<strong>压力坐标</strong>和<strong>等密度坐标</strong>,即水平坐标可以是压力坐标,也可以是等密度坐标。</p>
+<p>这个算法的目的是在<strong>混合坐标系统下参数化层间的垂直混合</strong>。其关键思想如下:</p>
+<ol>
+<li>
+<p>计算相邻层间的密度比Rρ。</p>
+</li>
+<li>
+<p>根据Rρ值判断属于盐指事件还是扩散对流。</p>
+</li>
+<li>
+<p>根据Rρ值的范围,计算热量、盐量和质量通量。</p>
+</li>
+<li>
+<p>根据通量计算层厚度、温度和盐度的变化。</p>
+</li>
+<li>
+<p>调整变化,保证质量守恒和层厚度正值性。</p>
+</li>
+<li>
+<p><strong>重复上述步  骤,直到收敛</strong>。</p>
+</li>
+</ol>
+<p>与等密度坐标下的算法相比,这个算法需要区分坐标类型,在压力坐标下主要表示垂直对流过程,在等密度坐标下主要表示双扩散过程。</p>
+<p>这种算法属于显式算法,通过<strong>计算各物理过程的贡献直接修改模型变量</strong>,而不是隐式地通过扩散方程求解。</p>
+<p>总之,这是HYCOM模型在混合坐标下用来表示层间垂直混合的一种专门设计的算法。它考虑了混合坐标的特点,表示了不同水平坐标下的物理过程。</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="model-3-isopycnic-coordinate-explicit-algorithm">Model 3: Isopycnic Coordinate Explicit Algorithm<a href="#model-3-isopycnic-coordinate-explicit-algorithm" class="hash-link" aria-label="Direct link to Model 3: Isopycnic Coordinate Explicit Algorithm" title="Direct link to Model 3: Isopycnic Coordinate Explicit Algorithm">​</a></h5>
+<p>等密度坐标显式算法是 HYCOM 模型中的一种垂直混合算法。</p>
+<p>它是针对使用等密度坐标(isopycnic coordinate)的情形设计的。在使用等密度坐标时,每个模型层都有一个参考密度,模型试图保持每个层的密度恒定。</p>
+<p>这个显式算法的目的是在保持每个层参考密度不变的前提下,在层与层之间进行温度、盐度和质量(层厚度)的交换,以表示垂直的对流混合过程。</p>
+<p>算法的主要思想是:</p>
+<ol>
+<li>在两个相邻的等密度层之间计算热量、盐度和质量(层厚度)的通量。</li>
+<li>根据这些通量计算每个层的温度、盐度和厚度的变化。</li>
+<li>调整层厚度的变化,以保证质量守恒和层厚度的正值性。</li>
+<li><strong>迭代</strong>上述步骤,直到各层的密度接近其参考密度。</li>
+</ol>
+<p>这种算法是显式的,意味着是直接计算各个物理过程的贡献,而不是通过参数化的形式。相比而言,KPP算法是一种隐式算法,通过先计算各进程的强度,再解  决一维的垂直扩散方程。</p>
+<p>总之,Isopycnic Coordinate Explicit Algorithm 通过计算层间通量,明确表示质量、热量、盐度在等密度层之间的交换过程,从而参数化垂直混合,保持等密度坐标的合理性。它是HYCOM模型针对等密度坐标的专门设计的垂直混合方案。</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="hycom-22-状态方程">HYCOM 2.2 状态方程<a href="#hycom-22-状态方程" class="hash-link" aria-label="Direct link to HYCOM 2.2 状态方程" title="Direct link to HYCOM 2.2 状态方程">​</a></h4>
+<p>HYCOM 2.2 模型中使用的密度状态方程主要描述如下:</p>
+<ol>
+<li>
+<p>使用7项多项式来描述海水密度与温度和盐度的关系。这些<strong>多项式系数是根据UNESCO提供的状态方程拟合得到的</strong>。</p>
+</li>
+<li>
+<p>提供了两个系数组,对应着不同的参考压强(0,20 MPa)。这两个系数组分别计算出的σ即ρ0和ρ2.</p>
+</li>
+<li>
+<p>用户可以选择使用ρ0或ρ2作为模型的垂直坐标。ρ0适用于上层海洋,ρ2适用于整个海洋。</p>
+</li>
+<li>
+<p>模型中的热膨胀系数α和盐膨胀系数β是根据该状态方程求导得到的。</p>
+</li>
+<li>
+<p>当使用混合坐标时,模型采用热膨胀系数α和盐膨胀系数β来诊断温度,以保持稳定的密度坐标。</p>
+</li>
+<li>
+<p>模型考虑了垂向压缩性效应,即温度和压强变化对海水密度的影响。</p>
+</li>
+<li>
+<p>模型还提供了可选方案,可以改为仅纵向输送盐度而不是温盐,以避免反混合的影响。</p>
+</li>
+<li>
+<p>Jerlov水类型决定了光的penetration depth,从而影响短波辐射的吸收。</p>
+</li>
+</ol>
+<p>HYCOM 2.2使用多项式逼近UNESCO状态方程以高效计算海水密度,并提供了参数选项来适应不同的模拟需求,在混合坐标系统中尽可能维持层间的稳定密度坐标。</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="synthetic-floats-drifters-and-moorings--模拟浮标漂流器和系留  装置">Synthetic Floats, Drifters, and Moorings  模拟浮标、漂流器和系留装置<a href="#synthetic-floats-drifters-and-moorings--模拟浮标漂流器和系留装置" class="hash-link" aria-label="Direct link to Synthetic Floats, Drifters, and Moorings  模拟浮标、漂流器和系留装置" title="Direct link to Synthetic Floats, Drifters, and Moorings  模拟浮标、漂流器和系留装置">​</a></h4>
+<p>HYCOM 2.2具有在模型运行期间部署和跟踪合成浮标和漂流器的功能，以及用合成锚链给模型添加种子。</p>
+<p>主要介绍了HYCOM模型中用于<strong>模拟浮标、漂流器和系留装置</strong>的算法。</p>
+<ol>
+<li>模型支持计算和跟踪4种类型的浮标<!-- -->
+<ol>
+<li>3D拉格朗日浮标</li>
+<li>等密度浮标</li>
+<li>等压力浮标</li>
+<li>固定浮标(系留装置)。</li>
+</ol>
+</li>
+<li>浮标的水平平移使用4阶Runge-Kutta时间插值和16点二次空间插值算法。</li>
+<li>3D浮标的垂向运动由诊断的垂向速度驱动。</li>
+<li>等密度浮标保持在参考等密度面的深度。</li>
+<li>等压力浮标保持在初始压力深度。</li>
+<li>固定浮标不移动,可叠加成系留装置。</li>
+<li>模型可以在运行时部署和追踪浮标,并插值计算流体动力和热力学性质到浮标位置。</li>
+<li>浮标的位置、时间、插值结果等都可输出到文件进行分析。</li>
+</ol>
+<p>详细讲解了HYCOM中用于模拟和追踪各类浮标的算法思路、空间插值方法、时间推进方案等,可以<strong>模拟浮标在海洋中的运动过程并得到高时间分辨率的数值结果</strong>。这为利用浮标数据验证和约束模型提供了基础。</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="垂直插值算法">垂直插值算法<a href="#垂直插值算法" class="hash-link" aria-label="Direct link to 垂直插值算法" title="Direct link to 垂直插值算法">​</a></h5>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="水平插值算法">水平插值 算法<a href="#水平插值算法" class="hash-link" aria-label="Direct link to 水平插值算法" title="Direct link to 水平插值算法">​</a></h5>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="vertical-adjustment-of-floats">Vertical Adjustment of Floats<a href="#vertical-adjustment-of-floats" class="hash-link" aria-label="Direct link to Vertical Adjustment of Floats" title="Direct link to Vertical Adjustment of Floats">​</a></h5>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="runga-kutta-时间插值">Runga-Kutta 时间插值<a href="#runga-kutta-时间插值" class="hash-link" aria-label="Direct link to Runga-Kutta 时间插值" title="Direct link to Runga-Kutta 时间插值">​</a></h5>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="浮标算法的初始化和实现">浮标算法的初始化和实现<a href="#浮标算法的初始化和实现" class="hash-link" aria-label="Direct link to 浮标算法的初始化和实现" title="Direct link to 浮标算法的初始化和实现">​</a></h5>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="初步计算">初步计算<a href="#初步计算" class="hash-link" aria-label="Direct link to 初步计算" title="Direct link to 初步计算">​</a></h5>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="identification-of-the-model-layer-containing-the-float">Identification of the Model Layer Containing the Float<a href="#identification-of-the-model-layer-containing-the-float" class="hash-link" aria-label="Direct link to Identification of the Model Layer Containing the Float" title="Direct link to Identification of the Model Layer Containing the Float">​</a></h5>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="float-advection">Float Advection<a href="#float-advection" class="hash-link" aria-label="Direct link to Float Advection" title="Direct link to Float Advection">​</a></h5>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="interpolation-of-water-properties-to-the-float-location">Interpolation of Water Properties to the Float Location<a href="#interpolation-of-water-properties-to-the-float-location" class="hash-link" aria-label="Direct link to Interpolation of Water Properties to the Float Location" title="Direct link to Interpolation of Water Properties to the Float Location">​</a></h5>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="hycom-22-potential-temperature-balance-潜在的温度平衡">HYCOM 2.2 Potential Temperature Balance 潜在的温度平衡<a href="#hycom-22-potential-temperature-balance-潜在的温度平衡" class="hash-link" aria-label="Direct link to HYCOM 2.2 Potential Temperature Balance 潜在的温度平衡" title="Direct link to HYCOM 2.2 Potential Temperature Balance 潜在的温度平衡">​</a></h4>
+<p>主要讲述了HYCOM模型中关于<strong>位温平衡的计算和诊断方法</strong>。</p>
+<ol>
+<li>HYCOM模式中,位温和层厚度是预测变量,而混合层厚度和温度是在每个时间步后进行诊断的。</li>
+<li>模型没有明确的混合层温度平衡方程。需要通过垂直积分每个层的位温平衡方程来诊断混合层温度平衡项。</li>
+<li>每个模型层的位温平衡方程包括:<!-- -->
+<ul>
+<li>(1) 水平平流项</li>
+<li>(2) 与质量通量相关的温度通量项</li>
+<li>(3) 水平扩散项</li>
+<li>(4) 垂向扩散项</li>
+<li>(5) 垂向热通量散度项</li>
+</ul>
+</li>
+<li>在压力坐标域,第(2)项表示垂向对流的效应;在等密度坐标域,第(2)项和第(4)项合并表示垂向扩散的效应。</li>
+<li>对于混合层温度平衡,第(2)项和第(4)项合并表示垂向热通量(对流和扩散)的综合效应。</li>
+<li>文中给出了<strong>位温平衡方程的导出过程</strong>。</li>
+</ol>
+<p>该节阐明了HYCOM模式中位温平衡方程的物理意义,说明了<strong>在不同坐标域内各项的物理意义</strong>,并给出了<strong>混合层温度平衡的诊断方法</strong>,为分析模型结果提供了基础。</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="potential-temperature-balance-within-individual-model-layers">Potential Temperature Balance within Individual Model Layers<a href="#potential-temperature-balance-within-individual-model-layers" class="hash-link" aria-label="Direct link to Potential Temperature Balance within Individual Model Layers" title="Direct link to Potential Temperature Balance within Individual Model Layers">​</a></h5>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="mixed-layer-temperature-balance">Mixed Layer Temperature Balance<a href="#mixed-layer-temperature-balance" class="hash-link" aria-label="Direct link to Mixed Layer Temperature Balance" title="Direct link to Mixed Layer Temperature Balance">​</a></h5>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="hycom-22-generalized-vertical-coordinates-广义的垂直坐标">HYCOM 2.2 Generalized Vertical Coordinates 广义的垂直坐标<a href="#hycom-22-generalized-vertical-coordinates-广义的垂直坐标" class="hash-link" aria-label="Direct link to HYCOM 2.2 Generalized Vertical Coordinates 广义的垂直坐标" title="Direct link to HYCOM 2.2 Generalized Vertical Coordinates 广义的垂直坐标">​</a></h4>
+<p>主要介绍了HYCOM模型中的通用垂直坐标和垂直坐标的调整算法。</p>
+<ol>
+<li>HYCOM使用混合坐标,允许不同区域使用不同类型的垂直坐标,如压力坐标、等密度坐标和Sigma坐标。</li>
+<li>模型为每个层指定一个最小层厚,坐标调整算法将尽量保持层厚超过该最小值。</li>
+<li>在开放海洋区,层厚最小值按照海底深度的函数指定,用于压力-等密度坐标的转变。</li>
+<li>在近海区,层厚最小值采用不同的规定,用于压力-Sigma坐标的转变。</li>
+<li>坐标调整算法基于Bleck和Boudra的研究,在保持层厚大于最小值的同时尽可能保持等密度条件。</li>
+<li>算法细节包括: donor cell方案、cushion函数的应用、分层和重新组合等。</li>
+<li>重新映射物理量时使用线性片wise方法和单调限制,减小数值误差。</li>
+<li>在等密度层内,仅移动坐标的1/8距 离,也可有效维持等密度条件。</li>
+</ol>
+<p>详细介绍了HYCOM模型混合坐标系统的设计思想和实现方法,<strong>既适合开放海洋,也适合近海和边界层</strong>,实现了通用的海洋坐标系统。</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="specification-of-minimum-layer-thickness">Specification of Minimum Layer Thickness<a href="#specification-of-minimum-layer-thickness" class="hash-link" aria-label="Direct link to Specification of Minimum Layer Thickness" title="Direct link to Specification of Minimum Layer Thickness">​</a></h5>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="grid-generator-implementation">Grid Generator Implementation<a href="#grid-generator-implementation" class="hash-link" aria-label="Direct link to Grid Generator Implementation" title="Direct link to Grid Generator Implementation">​</a></h5>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="vertical-remapping-of-dynamical-and-thermodynamical-layer-variables">Vertical Remapping of Dynamical and Thermodynamical Layer Variables<a href="#vertical-remapping-of-dynamical-and-thermodynamical-layer-variables" class="hash-link" aria-label="Direct link to Vertical Remapping of Dynamical and Thermodynamical Layer Variables" title="Direct link to Vertical Remapping of Dynamical and Thermodynamical Layer Variables">​</a></h5>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="hycom-mixed-layer-submodel-formulations">HYCOM Mixed Layer Submodel Formulations<a href="#hycom-mixed-layer-submodel-formulations" class="hash-link" aria-label="Direct link to HYCOM Mixed Layer Submodel Formulations" title="Direct link to HYCOM Mixed Layer Submodel Formulations">​</a></h4>
+<p>主要介绍了HYCOM模型中用于混合层物理过程的参数化的几个子模型。</p>
+<ol>
+<li>
+<p>KPP模型:非局地K碰撞理论模型,匹配表层边界层强混合和内部海洋弱混合。采用半隐式数值算法。</p>
+</li>
+<li>
+<p>Mellor-Yamada模型:运用turbulence closure技术的参数化混合层流动。</p>
+</li>
+<li>
+<p>Price-Weller-Pinkel模型:依靠不稳定性检验混合。</p>
+</li>
+<li>
+<p>Kraus-Turner模型: 模型混合层厚度通过动能方程确定</p>
+</li>
+<li>
+<p>GISS模型:基于Reynolds stresses的二阶模型</p>
+</li>
+</ol>
+<p>HYCOM提供了多种混合层模型以供选择,用户可以根据具体的应用需求选择合适的模式。这些模式有不同的理论基础,数值算法也各不相同。</p>
+<p>这一节概括讲述了HYCOM中包含的各种混合层物理过程的参数化方案,模型的混合层物理就是建立在这些子模型的基础上的。</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="kpp-vertical-mixing-algorithm-kpp垂直混合算法-️️">KPP Vertical Mixing Algorithm （kpp垂直混合算法） ⭐️⭐️<a href="#kpp-vertical-mixing-algorithm-kpp垂直混合算法-️️" class="hash-link" aria-label="Direct link to KPP Vertical Mixing Algorithm （kpp垂直混合算法） ⭐️⭐️" title="Direct link to KPP Vertical Mixing Algorithm （kpp垂直混合算法） ⭐️⭐️">​</a></h5>
+<ul>
+<li>基于Large等人在1994年提出的非局地K碰撞理论。</li>
+<li>匹配表层边界层强势混合和内部海洋弱混合的轮廓。</li>
+<li>参数化了内部波、剪切不稳定、双扩散等过程的贡献。</li>
+<li>半隐式数值算法,需迭代求解。</li>
+<li>计算混合层厚度、扩散系数轮廓。</li>
+<li>考虑非局地通量的影响。</li>
+</ul>
+<p>“The KPP model is semi-implicit and requires multiple iterations.”  (<a href="zotero://open-pdf/library/items/8NSD5YQ9?page=40&amp;annotation=NRA27FV9" target="_blank" rel="noopener noreferrer">pdf</a>) KPP模型需要多次迭代</p>
+<p>“The model variables are then mixed by solving the 1D vertical diffusion equation at every grid point. The solution procedure, involving the formulation of a matrix problem and the inversion of a tri-diagonal matrix, is described in Section 5.2.12.”(<a href="zotero://open-pdf/library/items/8NSD5YQ9?page=40&amp;annotation=XZ5LFS6G" target="_blank" rel="noopener noreferrer">pdf</a>)</p>
+<p>第一次迭代：</p>
+<p>第一次迭代是在初始模型变量剖面中计算的模型界面处的扩散/粘度系数的垂向剖面。</p>
+<p>然后通过求解每个网格点上的一维垂向扩散方程来混合模型变量。</p>
+<p>求解过程涉及到问题矩阵的形成和三对角矩阵的求逆，具体描述在第5.2.12节中。</p>
+<p>第二次迭代</p>
+<p>在第二轮迭代中，模型变量的垂直混合剖面估算出新的扩散率/粘度剖面，然后将模型变量的原始剖面进行混合。</p>
+<p><strong>重复执行此过程，直到模型变量的混合剖面与上一次迭代的混合剖面相差不大为止。</strong></p>
+<p>可能引入并行计算的地方 ⭐️⭐️</p>
+<p>下面的三个部分描述了在KPP算法的每次迭代中如何计算表面到底部的扩散/粘度剖面</p>
+<ul>
+<li>Surface Fluxes</li>
+<li>Diapycnal Diffusivity in the Ocean Interior</li>
+<li>Surface Boundary Layer Thickness</li>
+<li>Surface Boundary Layer Diffusivity</li>
+<li>Vertical Mixing<!-- -->
+<ul>
+<li>最后一部分解释了半隐式方案如何在压力和动量网格点上进行垂向混合。</li>
+</ul>
+</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="the-mellor-yamada-level-25-turbulence-closure-model-my-25">The Mellor-Yamada Level 2.5 Turbulence Closure Model （MY 2.5）<a href="#the-mellor-yamada-level-25-turbulence-closure-model-my-25" class="hash-link" aria-label="Direct link to The Mellor-Yamada Level 2.5 Turbulence Closure Model （MY 2.5）" title="Direct link to The Mellor-Yamada Level 2.5 Turbulence Closure Model （MY 2.5）">​</a></h5>
+<ul>
+<li>基于Reynolds平均纳维-斯托克斯方程的turbulence closure技术。</li>
+<li>计算湍流动能和湍流长度尺度的进化方程。</li>
+<li>分辨率内外的剪切作用。</li>
+<li>与KPP不同,是完全 prognostic 的方程组。</li>
+<li>需定义独立的竖直格点结构。</li>
+<li>参数化整个水柱的混合。</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="price-weller-pinkel-dynamical-instability-vertical-mixing-algorithm-pwp">Price-Weller-Pinkel Dynamical Instability Vertical Mixing Algorithm （PWP）<a href="#price-weller-pinkel-dynamical-instability-vertical-mixing-algorithm-pwp" class="hash-link" aria-label="Direct link to Price-Weller-Pinkel Dynamical Instability Vertical Mixing Algorithm （PWP）" title="Direct link to Price-Weller-Pinkel Dynamical Instability Vertical Mixing Algorithm （PWP）">​</a></h5>
+<ul>
+<li>分三步<!-- -->
+<ul>
+<li>消除静不稳定</li>
+<li>整层切合不稳定</li>
+<li>剪切不稳定。</li>
+</ul>
+</li>
+<li>简单的批量模式。</li>
+<li>和Kraus-Turner类似,分段均匀混合。</li>
+</ul>
+<p>Mixing is accomplished in three steps:</p>
+<ul>
+<li>(1) static instability relief in the upper-ocean mixed layer<!-- -->
+<ul>
+<li>“The process is repeated until a model layer is encountered that is denser than the mixed water above”  (<a href="zotero://open-pdf/library/items/8NSD5YQ9?page=48&amp;annotation=L5VH9J73" target="_blank" rel="noopener noreferrer">pdf</a>) PWP算法也存在重复过程</li>
+</ul>
+</li>
+<li>(2) bulk mixed layer entrainment based on a bulk Richardson number<!-- -->
+<ul>
+<li>“The process is repeated, with the mixed layer entraining additional layers, until” (<a href="zotero://open-pdf/library/items/8NSD5YQ9?page=49&amp;annotation=FZJGBEBF" target="_blank" rel="noopener noreferrer">pdf</a>)</li>
+</ul>
+</li>
+<li>(3) vertical shear instability mixing between adjacent layers based on a gradient Richardson number</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="krauss-turner-mixed-layer-models-kt">Krauss-Turner Mixed Layer Models （KT）<a href="#krauss-turner-mixed-layer-models-kt" class="hash-link" aria-label="Direct link to Krauss-Turner Mixed Layer Models （KT）" title="Direct link to Krauss-Turner Mixed Layer Models （KT）">​</a></h5>
+<ul>
+<li>混合层厚度通过动能平衡方程确定。</li>
+<li>有unmixing技术处理混合层底界  面。</li>
+<li>有完整和简化版本。</li>
+<li>也是分段均匀混合的批量模式。</li>
+</ul>
+<p>有三种不同的KT模型</p>
+<ul>
+<li>Model 1: Full K-T Model (hybrid coordinates with unmixing)<!-- -->
+<ul>
+<li>“The process is repeated until the program detects a layer with greater density than the mixed layer.”  (<a href="zotero://open-pdf/library/items/8NSD5YQ9?page=51&amp;annotation=RRYDD7TW" target="_blank" rel="noopener noreferrer">pdf</a>) 这个地方可能存在并行计算，重复过程。</li>
+</ul>
+</li>
+<li>Model 2: Simplified K-T Model (hybrid coordinates without unmixing)</li>
+<li>Model 3: K-T Model (isopycnic vertical coordinates)</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="giss-mixed-layer-model">GISS Mixed Layer Model<a href="#giss-mixed-layer-model" class="hash-link" aria-label="Direct link to GISS Mixed Layer Model" title="Direct link to GISS Mixed Layer Model">​</a></h5>
+<ul>
+<li>基于二阶模型,计算Reynolds Stress。</li>
+<li>分Near-wall和Far-field参数化。</li>
+<li>考虑双稳定、双不稳定等情况。</li>
+<li>整个水柱混合,不仅混合层。</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="hycom-22-horizontal-mesh-水平网格">HYCOM 2.2 Horizontal Mesh 水平网格<a href="#hycom-22-horizontal-mesh-水平网格" class="hash-link" aria-label="Direct link to HYCOM 2.2 Horizontal Mesh 水平网格" title="Direct link to HYCOM 2.2 Horizontal Mesh 水平网格">​</a></h4>
+<p>主要介绍了HYCOM模型的水平网格设置。</p>
+<ol>
+<li>HYCOM使用直角坐标系,x轴向东,y轴向北。</li>
+<li>采用C网格布置,有压力点P,速度点U、V,和涡量点Q。</li>
+<li>U、V速度点和Q涡量点比P点多一列一行。</li>
+<li>所有变量的维数相同,多出的一行一列设置为未使用。</li>
+<li>P点间隔相等,U、V点也间隔相等。</li>
+<li>U、V点位于P点的东、北半格距离。</li>
+<li>Q点位于P点的东北一个整格距离。</li>
+<li>这样的布置符合离散流体动力学中的C  网格设置。</li>
+<li>图示了一个7×7的P点网格样例。</li>
+<li>C网格易于表示中心差分离散格式。</li>
+</ol>
+<p>这样的网格布置充分考虑了变量位置的需求,使得离散格式表示连续方程时索引表示简洁明了。它在数值海洋模型中应用广泛。</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="hycom-22-momentum-balance-动量平衡">HYCOM 2.2 Momentum Balance 动量平衡<a href="#hycom-22-momentum-balance-动量平衡" class="hash-link" aria-label="Direct link to HYCOM 2.2 Momentum Balance 动量平衡" title="Direct link to HYCOM 2.2 Momentum Balance 动量平衡">​</a></h4>
+<p>主要介绍了HYCOM模型中动量平衡方程的处理。</p>
+<ol>
+<li>
+<p>动量方程考虑了各层密度的水平变化。</p>
+</li>
+<li>
+<p>风应力仅作用于表层,除非启用Kraus-Turner混合层模型。</p>
+</li>
+<li>
+<p>重点是压力梯度项的计算。</p>
+</li>
+<li>
+<p>在通用坐标系中,压力梯度需计算两项。</p>
+</li>
+<li>
+<p>逐层积分时,压力梯度项与涡量相关。</p>
+</li>
+<li>
+<p>使用有限差分形式,同时满足质量和涡量守恒。</p>
+</li>
+<li>
+<p>在等密度坐标中,可以用Montgomery位势。</p>
+</li>
+<li>
+<p>给出了各向异性及准均方根网格的具体运算表达式。</p>
+</li>
+<li>
+<p>计算涉及4个格点,使用具有物理意义的中间变量。</p>
+</li>
+<li>
+<p>完整保留了涡量数值属性。</p>
+</li>
+<li>
+<p>公式推导符合流体动力学理论要求。</p>
+</li>
+</ol>
+<p>该节重点讲述了如何在通用坐标系下高效并准确计算压力梯度项,同时满足物理守恒,这是模式动量平衡的关键。</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="ocean-heat-content-ohc-balance-海洋热含量平衡">Ocean Heat Content (OHC) Balance 海洋热含量平衡<a href="#ocean-heat-content-ohc-balance-海洋热含量平衡" class="hash-link" aria-label="Direct link to Ocean Heat Content (OHC) Balance 海洋热含量平衡" title="Direct link to Ocean Heat Content (OHC) Balance 海洋热含量平衡">​</a></h4>
+<p>主要介绍了HYCOM模型中海洋热含量平衡的计算方法。</p>
+<ol>
+<li>海洋热含量是预测台风强度非常重要的一个参数。</li>
+<li>HYCOM中位温和层厚是预测变量,而混合层厚度和温度是诊断变量。</li>
+<li>模型没有明确的混合层温度平衡方程。</li>
+<li>需要通过垂直积分每个层的位温平衡方程来诊断混合层温度平衡。</li>
+<li>每个层的位温平衡方程包括:<!-- -->
+<ul>
+<li>(1) 水平平流项</li>
+<li>(2) 与质量通量相关的温度通量项</li>
+<li>(3) 水平扩散项</li>
+<li>(4) 垂向扩散项</li>
+<li>(5) 垂向热通量散度项</li>
+</ul>
+</li>
+<li>在压力坐标中,第2项表示垂向对流;在等密度坐标中,第2项和第4项合并表示垂向扩散效应。</li>
+<li>对混合层温度平衡,第2项和第4项合并表示垂向热通量的综合效应。</li>
+<li>给出了位温平衡方程的详细推导过程。</li>
+</ol>
+<p>该节阐明了<strong>海洋热含量平衡的计算方法</strong>,为分析和预测台风强度提供了重要参考。</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="hycom-22-surface-fluxes-表面通量">HYCOM 2.2 Surface Fluxes 表面通量<a href="#hycom-22-surface-fluxes-表面通量" class="hash-link" aria-label="Direct link to HYCOM 2.2 Surface Fluxes 表面通量" title="Direct link to HYCOM 2.2 Surface Fluxes 表面通量">​</a></h4>
+<p>主要介绍了HYCOM模型中表面通量的处理。</p>
+<ol>
+<li>表面通量在顶层海水中吸收,除非打开Kraus-Turner混合层模型。</li>
+<li>短波辐射利用两波段的Jerlov传播模型穿透到深层。</li>
+<li>水类型决定穿透深度,提供了5种可选水类型。</li>
+<li>可选吸收全部短波辐射在混合层。</li>
+<li>提供常量和Kara方案两种暗面传热参数化。</li>
+<li>可以强制位温回弹到观测值。</li>
+<li>可选增加热通量偏差项以减少海温偏差。</li>
+<li>改进了模拟河流的加入,作为降水增加。</li>
+<li>降水可降低顶层盐度。</li>
+<li>给出了Jerlov不同水类型的参数表。</li>
+<li>详细叙述了具体的数值实现。</li>
+</ol>
+<p>该节讲述了HYCOM如何处理各种表面 fluxes,选择不同方案的影响,以及数值实现细节,是表面通量的重要组成部分。</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="hycom-22-implicit-vertical-diffusion-equation-隐性垂直扩散方程-️">HYCOM 2.2 Implicit Vertical Diffusion Equation 隐性垂直扩散方程 ⭐️<a href="#hycom-22-implicit-vertical-diffusion-equation-隐性垂直扩散方程-️" class="hash-link" aria-label="Direct link to HYCOM 2.2 Implicit Vertical Diffusion Equation 隐性垂直扩散方程 ⭐️" title="Direct link to HYCOM 2.2 Implicit Vertical Diffusion Equation 隐性垂直扩散方程 ⭐️">​</a></h4>
+<p>第5.2.12节主要介绍了HYCOM模型中隐式垂直扩散方程的求解算法。</p>
+<ol>
+<li>在每格点解决一维垂直扩散方程。</li>
+<li>分解变量为平均和波动成分。</li>
+<li>垂向扩散可表达为梯度和扩散系数的函数。</li>
+<li>参数化各向异性扩散系数。</li>
+<li>构建三对角矩阵表示各层的耦合关系。</li>
+<li>右向量表示非局地通量项。</li>
+<li>求解矩阵方程组得到更新的变量向量。</li>
+<li>迭代求解到收敛。</li>
+<li>先在压力点求解,再插值到速度点。</li>
+<li>该算法可用于HYCOM中的多种垂直混合模式。</li>
+<li>矩阵形式考虑了各层的相互作用。</li>
+<li>迭代求解保证数值稳定性。</li>
+<li>给出了具体的矩阵表达式。</li>
+</ol>
+<p>总之,该算法提供了一种统一高效的隐式数值框架来解决垂直扩散方程。</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="kinematic-vertical-velocity-运动垂直速度">Kinematic Vertical Velocity 运动垂直速度<a href="#kinematic-vertical-velocity-运动垂直速度" class="hash-link" aria-label="Direct link to Kinematic Vertical Velocity 运动垂直速度" title="Direct link to Kinematic Vertical Velocity 运动垂直速度">​</a></h4>
+<p>主要介绍了HYCOM模型中计算运动垂向速度的方法。</p>
+<ol>
+<li>在笛卡尔坐标中,w可通过积分连续性方程获得。</li>
+<li>在HYCOM通用坐标中,需要重新推导。</li>
+<li>推导过程需要考虑坐标界面倾斜的跳跃条件。</li>
+<li>得到积分连续性方程后可计算w的层内线性分布。</li>
+<li>推导了两种不同形式的w计算公式。</li>
+<li>一种直接从u、v计算,一种结合质量通量量。</li>
+<li>后者用于模拟Lagrangian浮标的垂向平移。</li>
+<li>在计算时与求解连续性方程结合,提高效率。</li>
+<li>给出了不同位置w的具体计算表达式。</li>
+<li>通过与直接积分方法比较验证了公式的正确性。</li>
+<li>计算结果物理合理并且数值稳定。</li>
+</ol>
+<p>该节推导和验证了在HYCOM通用坐标下高效计算垂向速度w的方法,考虑了坐标系统的特征,获得了精确和连续的w分布,为后续计算提供了基础。</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="continuity-equation-连续性方程">Continuity Equation 连续性方程<a href="#continuity-equation-连续性方程" class="hash-link" aria-label="Direct link to Continuity Equation 连续性方程" title="Direct link to Continuity Equation 连续性方程">​</a></h4>
+<p>第5.2.14节主要介绍了HYCOM模式中连续性方程的求解算法。</p>
+<ol>
+<li>推导了层厚变化和底部压力变化之间的关系式。</li>
+<li>层厚变化等于质量通量散度的反映。</li>
+<li>使用Flux-Corrected Transport (FCT) 算法求解。</li>
+<li>FCT算法包括7步:<!-- -->
+<ul>
+<li>(1) 上游格式初始化</li>
+<li>(2) 计算无 diffusion 通量</li>
+<li>(3) 加入反diffusion 通量</li>
+<li>(4) 构建限幅因子</li>
+<li>(5) 校正反diffusion 通量</li>
+<li>(6) 调整底部压力</li>
+<li>(7) 加入质量通量散度</li>
+</ul>
+</li>
+<li>保证了质量、能量守恒,以及底部压力平衡。</li>
+<li>处理了层厚趋近零时的数值稳定性。</li>
+<li>介绍了界面扩散算子的添加。</li>
+<li>给出了详细的数学推导过程。</li>
+</ol>
+<p>该算法高效解决了连续性方程,保证了物理守恒,是HYCOM数值核心的重要组成部分。</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="hycom-22-horizontal-advection-and-diffusion-水平对流和扩散">HYCOM 2.2 Horizontal Advection and Diffusion 水平对流和扩散<a href="#hycom-22-horizontal-advection-and-diffusion-水平对流和扩散" class="hash-link" aria-label="Direct link to HYCOM 2.2 Horizontal Advection and Diffusion 水平对流和扩散" title="Direct link to HYCOM 2.2 Horizontal Advection and Diffusion 水平对流和扩散">​</a></h4>
+<p>主要介绍了HYCOM中水平方向的物质（盐分、温度等）输运算法。</p>
+<ol>
+<li>不同坐标模式下处理温盐的不同:<!-- -->
+<ul>
+<li>等密度坐标:只运输盐分</li>
+<li>混合坐标:可选运输温盐或仅盐分</li>
+</ul>
+</li>
+<li>重点处理确保层厚的正值性。</li>
+<li>引入残余层厚,避免零层厚时的数值问题。</li>
+<li>改进了趋势项的处理。</li>
+<li>使用调和平均厚度处理扩散项。</li>
+<li>使用Asselin过滤器处理时序误差。</li>
+<li>两步过滤更加稳定。</li>
+<li>给出了完整的数学表达式。</li>
+<li>考虑了不同情况的数值稳定性。</li>
+</ol>
+<p>该算法高效而稳定地求解了HYCOM中的水平物质输运,是保证温盐平衡的关键。</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="barotropic-mode--无压模式">Barotropic Mode  无压模式<a href="#barotropic-mode--无压模式" class="hash-link" aria-label="Direct link to Barotropic Mode  无压模式" title="Direct link to Barotropic Mode  无压模式">​</a></h4>
+<p>主要介绍了HYCOM中的无压模式的求解算法。</p>
+<ol>
+<li>推导了无压模态的运动方程和连续性方程。</li>
+<li>无压模态采用快时间步进,内部模态采用慢时间步进。</li>
+<li>无压运动方程使用前后计算。</li>
+<li>连续性方程使用正时计算。</li>
+<li>Asselin过滤控制数值误差。</li>
+<li>处理了压力梯度项中的密度变化。</li>
+<li>当层厚变薄时,重新分配动量。</li>
+<li>计算时重新缩放变量使数值稳定。</li>
+<li>层内动量线性分布,层间可跳跃。</li>
+<li>滤波控制分辨率误差。</li>
+<li>保证了质量、动量守恒。</li>
+<li>给出了详细的数学表达式。</li>
+</ol>
+<p>该算法通过双时间步结构、变量缩放等技术,稳定高效地求解了HYCOM中的无压模态,保证了数值稳定性。</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/paper_notes/1_HYCOM/01_Software Design Description for the HYCOM/阅读笔记.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/paper_notes/HYCOM/Software Design Description for the HYCOM/论文原件"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">论文原件</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/paper_notes/HYCOM/HYCOM V2.1 Users guide/论文原件"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">论文原件</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#文章摘要" class="table-of-contents__link toc-highlight">文章摘要</a></li><li><a href="#第一章-scope" class="table-of-contents__link toc-highlight">第一章 SCOPE</a></li><li><a href="#第二章-referenced-documents" class="table-of-contents__link toc-highlight">第二章 REFERENCED DOCUMENTS</a></li><li><a href="#第三章-hycom-22-software-summary" class="table-of-contents__link toc-highlight">第三章 HYCOM 2.2 SOFTWARE SUMMARY</a></li><li><a href="#第四章-hycom-22-software-inventory" class="table-of-contents__link toc-highlight">第四章 HYCOM 2.2 SOFTWARE INVENTORY</a><ul><li><a href="#软件组成" class="table-of-contents__link toc-highlight">软件组成</a></li><li><a href="#软件组织和实现" class="table-of-contents__link toc-highlight">软件组织和实现</a></li></ul></li><li><a href="#第五章-hycom-22-detailed-design" class="table-of-contents__link toc-highlight">第五章 HYCOM 2.2 DETAILED DESIGN</a><ul><li><a href="#限制和约束" class="table-of-contents__link toc-highlight">限制和约束</a></li><li><a href="#hycom的逻辑和基本方程式" class="table-of-contents__link toc-highlight">HYCOM的逻辑和基本方程式</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/paper-notes-intro">论文笔记</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/blogs-intro">个人博客</a></li><li class="footer__item"><a class="footer__link-item" href="/blog">相关内容</a></li><li class="footer__item"><a class="footer__link-item" href="/resume">个人简历</a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://t.me/cx_cst" target="_blank" rel="noopener noreferrer" class="footer__link-item">Telegram<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://blog.csdn.net/qq_45575167" target="_blank" rel="noopener noreferrer" class="footer__link-item">CSDN</a></li><li class="footer__item"><a href="https://github.com/BUAAer-xing" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024 BUAAer-xing, 此网站使用 Docusaurus 进行构建✨</div></div></div></footer></div>
+</body>
+</html>
