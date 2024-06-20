@@ -17,10 +17,88 @@ hide_table_of_contents: true
 <strong><font face = "Microsoft YaHei" size = "4" color = "#183884" >东北大学 · 本科</font> </strong> &emsp;&emsp;&emsp;&emsp;&emsp;&thinsp;
 <strong><font face = "Microsoft YaHei" size = "4" color = "#183884" >北京航空航天大学 · 硕士研究生</font> </strong> &emsp;&emsp;&emsp;&emsp;&emsp;&thinsp;<font  size = "3" color = "#183884" ><strong>专业：</strong>计算机科学与技术</font>
 
-
 **邮箱**：congxingcs@163.com  &emsp; &emsp;&thinsp; **电话**：17562036369&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**状态**：在读硕士
 
-----
+
+---
+### 💼实习经历
+
+<h4 style={{ display: 'flex', justifyContent: 'space-between' }}>
+<span>百度在线网络技术(北京)有限公司🐻</span><span>云原生研发实习生</span><span>2024.03-至今</span>
+</h4>
+
+
+- **项目介绍**：负责封装集群调度器操作的插件以及相关云原生应用环境的部署和测试
+  - 本项目架构分为三层，分别涉及的语言为：Java、Go和Python，我在工作中，需要打通三层代码逻辑，将Slurm等调度器的相关操作封装成Python插件。效果为，用户在前端进行操作，操作逻辑通过三层结构，最终应用到集群上；
+  - 在云原生异构计算环境中部署和测试相关应用环境，比如机器人模拟领域的MuJoCo环境、汽车模拟领域的starccm+、abaqus以及optistruct等; 
+
+---
+
+### 🚀项目经历
+
+<h4 style={{ display: 'flex', justifyContent: 'space-between' }}>
+<span>****千万核级并行算法以及深度优化技术</span><span>国家项目</span><span>2023.10-至今</span>
+</h4>
+
+- **项目介绍**：负责设计异构计算Kernel以及矩阵存储结构
+  - 设计适合异构计算的数据结构，实现高效的矩阵存储结构，提高节点内计算效率;
+  - 实现任务的自适应分配以及节点间的负载均衡和计算加速;
+
+
+<h4 style={{ display: 'flex', justifyContent: 'space-between' }}>
+<span>基于机器学习的SpMV操作任务粒度自动选择模型</span><span>机器学习+研究方向实践</span><span>2023.11 – 2024.01</span>
+</h4>
+
+- **项目介绍**：
+  - 利用MPI编程模型，获得每个矩阵执行SpMV最佳的任务粒度; 
+  - 结合机器学习中常见的算法，利用从稀疏矩阵中提取出的多个属性，对多种模型进行训练，获得最佳模型;
+
+
+<h4 style={{ display: 'flex', justifyContent: 'space-between' }}>
+<span>基于Vue的数据结构与算法可视化平台</span><span>本科毕业设计</span><span>2022.10 – 2023.04</span>
+</h4>
+
+- **项目介绍**：
+  - 该平台由我个人独立进行开发。平台基于目前最先进的Vue3前端框架并结合相关组件库进行开发，具有快速、高效、易用和可维护性的优点。
+  - 平台实现常见数据结构：线性表、树、图、队列、栈等的可视化。平台也实现了常见算法：排序、查找、遍历等算法的可视化。同时引入基于ChatGPT的人工智能助手，更快的帮助使用该平台的学生解决学习过程中的疑惑。
+
+
+<h4 style={{ display: 'flex', justifyContent: 'space-between' }}>
+<span>MTCNN + Mobile Net 的口罩识别项目工程训练😷</span><span>二次开发负责人</span><span>2022.09-2022.10</span>
+</h4>
+
+- **项目介绍**：
+  随着国内外疫情形势的不断发展，直到今天，疫情防控已经成为了国民日常生活中的一部分。在这种常态下，基于各种各样的需求，产生了相对应的产品，人脸识别技术也在此背景下得到了相对应的发展。所以，本次工程实训选择复现MTCNN+Mobile Net的口罩识别项目，并且实现了动态进行多张人脸检测的结果实时进行输出的效果。
+
+<h4 style={{ display: 'flex', justifyContent: 'space-between' }}>
+<span>对于十四五规划下的农村新能源结构的调查与前景展望🛖</span><span>主要成员</span><span>2021.12-2022.03</span>
+</h4>
+
+- **项目介绍**：
+  本课题为参加全国大学生节能减排科技大赛所提交的作品议题，本项目由我提出想法，并组织团队进行调查，组织队员从网上收集资料并做数据处理，最终完成作品书。本作品获得校级一等奖和省级二等奖的成绩，并且入选国家级赛道。
+
+
+<h4 style={{ display: 'flex', justifyContent: 'space-between' }}>
+<span>基于OpenCV实现人体姿势识别实现人机交互地铁跑酷游戏</span><span>二次开发</span><span>2022.01-2022.02</span>
+</h4>
+
+- **项目介绍**：
+  为了实现计算机图形学的相关学习，通过网上自学Opencv相关知识，通过python编程，利用开源库，借助别人训练好的模型，对人体的头部、肘部、腿部，脚部进行实时动态识别，实现实时实现识别人体动作，从而反映到地铁跑酷的游戏当中，实现人机交互游戏，但实现起来，延迟较为严重，可玩性不佳。
+
+<h4 style={{ display: 'flex', justifyContent: 'space-between' }}>
+<span>课程设计 —— 📝大学课程设计汇总</span><span>后端负责人</span><span>2019.09 - 至今</span>
+</h4>
+
+- 利用 DELPHI 实现**TFTP 协议**（课程设计优秀）
+- 基于**JSP**的NEUQ宿舍管理系统设计与实现（课程设计优秀）
+- 基于 8086 的计时抢答器设计（结课设计96分）
+- 基于 **Docker 技术的** LAMP框架搭建网站实现与分析（结课论文97分）	
+- 基于**QT多线程**机制实现模拟操作系统的基本功能  （课程设计优秀）   
+- 基于 Verilog 实现五级流水CPU设计 （课程设计优秀）	
+- 电子线路综合实现加法器 （课程设计优秀）	
+- 基于C++实现公司员工考勤系统 （课程设计优秀）	
+
+------
 
 ### 😊个人能力
 
@@ -49,58 +127,6 @@ hide_table_of_contents: true
 - 被评为暑期**社会实践校级先进个人**
 
 ----
-
-### 🚀项目经历
-
-<h4 style={{ display: 'flex', justifyContent: 'space-between' }}>
-<span>基于Vue的数据结构与算法可视化平台</span><span>本科毕业设计</span><span>2022.10 – 2023.04</span>
-</h4>
-
-- **项目介绍**：该平台由我个人独立进行开发。平台基于目前最先进的Vue3前端框架并结合相关组件库进行开发，具有快速、高效、易用和可维护性的优点。平台实现常见数据结构：线性表、树、图、队列、栈等的可视化。平台也实现了常见算法：排序、查找、遍历等算法的可视化。同时引入基于ChatGPT的人工智能助手，更快的帮助使用该平台的学生解决学习过程中的疑惑。
-
-
-<h4 style={{ display: 'flex', justifyContent: 'space-between' }}>
-<span>MTCNN + Mobile Net 的口罩识别项目工程训练😷</span><span>二次开发负责人</span><span>2022.09-2022.10</span>
-</h4>
-
-- **项目介绍**：
-  随着国内外疫情形势的不断发展，直到今天，疫情防控已经成为了国民日常生活中的一部分。在这种常态下，基于各种各样的需求，产生了相对应的产品，人脸识别技术也在此背景下得到了相对应的发展。所以，本次工程实训选择复现MTCNN+Mobile Net的口罩识别项目，并且实现了动态进行多张人脸检测的结果实时进行输出的效果。
-
-<h4 style={{ display: 'flex', justifyContent: 'space-between' }}>
-<span>对于十四五规划下的农村新能源结构的调查与前景展望🛖</span><span>主要成员</span><span>2021.12-2022.03</span>
-</h4>
-
-- **项目介绍**：
-  本课题为参加全国大学生节能减排科技大赛所提交的作品议题，本项目由我提出想法，并组织团队进行调查，组织队员从网上收集资料并做数据处理，最终完成作品书。本作品获得校级一等奖和省级二等奖的成绩，并且入选国家级赛道。
-
-<h4 style={{ display: 'flex', justifyContent: 'space-between' }}>
-<span>基于LSTM神经网络模型对BTC交易进行最优分析预测💴</span><span>编写代码</span><span>2022.03</span>
-</h4>
-
-- **项目介绍**：
-  基于当时BTC的火热程度，结合美赛题目Trading Strategies，利用Python构建LSTM神经网络对前期数据进行学习，并预测后期股票价格发展以获得最佳收益，获得国家三等奖
-
-<h4 style={{ display: 'flex', justifyContent: 'space-between' }}>
-<span>基于OpenCV实现人体姿势识别实现人机交互地铁跑酷游戏</span><span>二次开发</span><span>2022.01-2022.02</span>
-</h4>
-
-- **项目介绍**：
-  为了实现计算机图形学的相关学习，通过网上自学Opencv相关知识，通过python编程，利用开源库，借助别人训练好的模型，对人体的头部、肘部、腿部，脚部进行实时动态识别，实现实时实现识别人体动作，从而反映到地铁跑酷的游戏当中，实现人机交互游戏，但实现起来，延迟较为严重，可玩性不佳。
-
-<h4 style={{ display: 'flex', justifyContent: 'space-between' }}>
-<span>课程设计 —— 📝大学课程设计汇总</span><span>后端负责人</span><span>2019.09 - 至今</span>
-</h4>
-
-- 利用 DELPHI 实现**TFTP 协议**（课程设计优秀）
-- 基于**JSP**的NEUQ宿舍管理系统设计与实现（课程设计优秀）
-- 基于 8086 的计时抢答器设计（结课设计96分）
-- 基于 **Docker 技术的** LAMP框架搭建网站实现与分析（结课论文97分）	
-- 基于**QT多线程**机制实现模拟操作系统的基本功能  （课程设计优秀）   
-- 基于 Verilog 实现五级流水CPU设计 （课程设计优秀）	
-- 电子线路综合实现加法器 （课程设计优秀）	
-- 基于C++实现公司员工考勤系统 （课程设计优秀）	
-
-------
 
 ### 👨‍💼实践经历
 
