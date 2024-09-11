@@ -1,9 +1,5 @@
 ---
-authors:
-    name: BUAAer-xing
-    title: 北航HPC硕士生
-    url: https://github.com/BUAAer-xing
-    image_url: https://cdn.jsdelivr.net/gh/NEUQer-xing/Markdown_images@master/images-2/icon.png
+authors: [BUAAer-xing]
 ---
 
 # Cmake简单入门
@@ -12,7 +8,7 @@ authors:
 
 视频教程：[CMake 6分钟入门，不用再写复杂的Makefile](https://www.bilibili.com/video/BV1bg411p7oS)
 
-<iframe src="https://player.bilibili.com/player.html?bvid=BV1bg411p7oS" scrolling="no" frameborder="no" framespacing="0" allowfullscreen="true" width='100%' height='500px'> </iframe>
+<iframe src="https://player.bilibili.com/player.html?bvid=BV1bg411p7oS&autoplay=0" scrolling="no" frameborder="no" framespacing="0" allowfullscreen="true" autoplay="no" width='100%' height='500px'> </iframe>
 
 
 ## 先前知识

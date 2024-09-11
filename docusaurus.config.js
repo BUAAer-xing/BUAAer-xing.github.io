@@ -48,7 +48,7 @@ module.exports = async function createConfigAsync() {
           remarkPlugins: [(await import('remark-math')).default],
           rehypePlugins: [(await import('rehype-katex')).default],
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://buaaer-xing.github.io/',
         },
         blog: {
           showReadingTime: true,
@@ -59,7 +59,8 @@ module.exports = async function createConfigAsync() {
           remarkPlugins: [(await import('remark-math')).default],
           rehypePlugins: [(await import('rehype-katex')).default],
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://buaaer-xing.github.io/',
+          onUntruncatedBlogPosts: 'ignore',
         },
         theme: {
           customCss: './src/css/custom.css',

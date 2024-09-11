@@ -1,9 +1,5 @@
 ---
-authors:
-    name: BUAAer-xing
-    title: 北航HPC硕士生
-    url: https://github.com/BUAAer-xing
-    image_url: https://cdn.jsdelivr.net/gh/NEUQer-xing/Markdown_images@master/images-2/icon.png
+authors: [BUAAer-xing]
 ---
 
 
@@ -11,7 +7,7 @@ authors:
 
 课程来源：[于仕琪教授：Makefile 20分钟入门，简简单单，展示如何使用Makefile管理和编译C++代码](https://www.bilibili.com/video/BV188411L7d2/)
 
-<iframe src="https://player.bilibili.com/player.html?bvid=BV188411L7d2" scrolling="no" frameborder="no" framespacing="0" allowfullscreen="true" width='100%' height='500px'> </iframe>
+<iframe src="https://player.bilibili.com/player.html?bvid=BV188411L7d2&autoplay=0" scrolling="no" frameborder="no" framespacing="0" allowfullscreen="true" autoplay="0" width='100%' height='500px'> </iframe>
 
 ##   操作环境
 
