@@ -122,7 +122,7 @@ OBJ = main.o printhello.o factorial.o
 # 编译选项，显示所有的warning
 CXXLAGS = -c -Wall
  
-# $@表示的就是冒号前面的TARGET，$^表示的是冒号后OBJ的全部.o依赖文件
+# $@表示的就是冒号前面的TARGET $^表示的是冒号后OBJ的全部.o依赖文件
 $(TARGET): $(OBJ)
 	$(CXX) -o $@ $^
  

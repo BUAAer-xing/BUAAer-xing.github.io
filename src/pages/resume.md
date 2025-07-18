@@ -4,7 +4,7 @@ hide_table_of_contents: true
 ---
 
 <center> 
-<img src="https://cdn.jsdelivr.net/gh/NEUQer-xing/Markdown_images@master/images-2/BUAA-%E7%99%BD%E5%BA%95%E8%93%9D%E5%AD%97.png"/>
+<img src="./buaa.png"/>
 </center>
 
 ---

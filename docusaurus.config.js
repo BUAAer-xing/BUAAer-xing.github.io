@@ -46,7 +46,15 @@ module.exports = async function createConfigAsync() {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           remarkPlugins: [(await import('remark-math')).default],
-          rehypePlugins: [(await import('rehype-katex')).default],
+          // rehypePlugins: [(await import('rehype-katex')).default],
+          rehypePlugins: [
+                          [
+                            (await import('rehype-katex')).default,
+                            {
+                              strict: false  
+                            }
+                          ]
+                        ],
           editUrl:
             'https://buaaer-xing.github.io/',
         },
