@@ -1,5 +1,5 @@
 ---
-title: Markdown page example
+title: Resume for CX
 hide_table_of_contents: true
 ---
 
@@ -139,3 +139,5 @@ hide_table_of_contents: true
     - **在职经历**：
         一直帮助团支书完成团支部的相关工作，在本年度，本班级获得**校级优秀班集体的称号**
 - **ACM俱乐部成员**  	
+
+<script type="text/javascript" src="https://rf.revolvermaps.com/0/0/8.js?i=5ct701dzzey&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33" async="async"></script>
