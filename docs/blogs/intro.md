@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
-id: blogs-intro
-title: 介绍
-slug: /blogs-intro
+sidebar_position: 0
+id: blogs_intro
+title: 博客说明
+slug: /blogs_intro
 ---
 
 

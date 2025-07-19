@@ -65,7 +65,15 @@ module.exports = async function createConfigAsync() {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           remarkPlugins: [(await import('remark-math')).default],
-          rehypePlugins: [(await import('rehype-katex')).default],
+          // rehypePlugins: [(await import('rehype-katex')).default],
+          rehypePlugins: [
+                [
+                  (await import('rehype-katex')).default,
+                  {
+                    strict: false  
+                  }
+                ]
+              ],
           editUrl:
             'https://buaaer-xing.github.io/',
           onUntruncatedBlogPosts: 'ignore',
@@ -100,7 +108,7 @@ module.exports = async function createConfigAsync() {
         items: [
           {
             type: 'doc',
-            docId: 'paper_notes/paper-notes-intro',
+            docId: 'paper_notes/paper_notes_intro',
             position: 'left',
             label: '论文笔记',
           },
@@ -112,9 +120,15 @@ module.exports = async function createConfigAsync() {
           },
           {
             type: 'doc',
-            docId: 'blogs/blogs-intro',
+            docId: 'blogs/blogs_intro',
             position: 'left',
             label: '个人博客',
+          },
+          {
+            type: 'doc',
+            docId: 'my_papers/my_papers_intro',
+            position: 'left',
+            label: '发表论文',
           },
           {
             to: '/blog', 
@@ -141,11 +155,11 @@ module.exports = async function createConfigAsync() {
             items: [
               {
                 label: '论文笔记',
-                to: 'docs/paper-notes-intro',
+                to: 'docs/paper_notes_intro',
               },
               {
                 label: '个人博客',
-                to: 'docs/blogs-intro',
+                to: 'docs/blogs_intro',
               },
               {
                 label: '相关内容',

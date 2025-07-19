@@ -4,7 +4,7 @@ hide_table_of_contents: true
 ---
 
 <center> 
-<img src="./buaa.png"/>
+<img src="/img/buaa.png"/>
 </center>
 
 ---
@@ -15,16 +15,42 @@ hide_table_of_contents: true
 
 ### 🧑‍🎓教育经历
 <strong><font face = "Microsoft YaHei" size = "4" color = "#183884" >东北大学 · 本科</font> </strong> &emsp;&emsp;&emsp;&emsp;&emsp;&thinsp;
-<strong><font face = "Microsoft YaHei" size = "4" color = "#183884" >北京航空航天大学 · 硕士研究生</font> </strong> &emsp;&emsp;&emsp;&emsp;&emsp;&thinsp;<font  size = "3" color = "#183884" ><strong>专业：</strong>计算机科学与技术</font>
+<strong><font face = "Microsoft YaHei" size = "4" color = "#183884" >北京航空航天大学 · 硕士研究生</font> </strong> &emsp;&emsp;&emsp;&emsp;&emsp;&thinsp; <strong><font face = "Microsoft YaHei" size = "4" color = "#183884" >北京航空航天大学 · 博士研究生</font> </strong> &emsp;&emsp;&emsp;&emsp;&emsp;&thinsp;<font  size = "3" color = "#183884" ><strong>专业：</strong>计算机科学与技术</font>
 
-**邮箱**：congxingcs@163.com  &emsp; &emsp;&thinsp; **电话**：17562036369&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**状态**：在读硕士
+**邮箱**：congxingcs@163.com  &emsp; &emsp;&thinsp; **电话**：17562036369&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**状态**：在读博士、党支部书记、TACO(CCF-A)审稿人
+
+---
+
+### 📄 发表论文
+
+- **CB-SpMV:A Data Aggregating and Balance Algorithm for Cache-Friendly Block-Based SpMV on GPUs (第一作者, ICS’25, CCF-B)** [**[Paper]**](/docs/my_papers/ICS25_CB_SpMV/CB_SpMV_Paper) [**[Slide]**](/docs/my_papers/ICS25_CB_SpMV/CB_SpMV_Slide)
+
+- **CB-Sparse:A Cache-Friendly Data Aggregating Algorithm for Block-Based Sparse Matrix Multiplication on GPUs (第一作者, 已投稿, TACO, CCF-A)**
 
 
 ---
 ### 💼实习经历
 
 <h4 style={{ display: 'flex', justifyContent: 'space-between' }}>
-<span>百度在线网络技术(北京)有限公司🐻</span><span>云原生研发实习生</span><span>2024.03-至今</span>
+<span>华为技术有限公司📱</span><span>AI研发实习生</span><span>2025.04-至今</span>
+</h4>
+
+- **项目介绍**：负责NPU-CANN架构中的通信优化与建模工作
+  - 针对CANN框架中HCCL通信算子，深入分析其执行过程，识别通信中的barrier点以及冗余代码逻辑，优化算子实现以减少通信阻塞，提升整体执行性能；
+  - 对NPU的计算模块、内存管理单元以及通信路径进行微架构级别的仿真建模，构建NPU端Cache子系统模型，进一步用于性能预测和优化验证；
+
+
+<h4 style={{ display: 'flex', justifyContent: 'space-between' }}>
+<span>抖音视界有限公司🎵</span><span>AML研发实习生</span><span>2024.06-2024.09</span>
+</h4>
+
+- **项目介绍**：利用Kokkos对lammps中的GPU代码进行优化和重构
+  - 成功将AML模型中的预测计算逻辑重构并迁移至lammps主计算流程，消除预测逻辑与MD模拟之间的冗余通信，显著降低预测开销；
+  - 借助NVIDIA Nsight分析工具，深入分析集成后系统的计算和数据传输瓶颈，提出面向GPU共享资源调度的具体优化策略，辅助Kokkos进行异构计算层级调度调整；
+
+
+<h4 style={{ display: 'flex', justifyContent: 'space-between' }}>
+<span>百度在线网络技术(北京)有限公司🐻</span><span>云原生研发实习生</span><span>2024.03-2024.06</span>
 </h4>
 
 
@@ -102,7 +128,7 @@ hide_table_of_contents: true
 
 ### 😊个人能力
 
-- **编程语言**：主要使用：C++编程，了解并基本会使用Java、Python、C#、HTML、CSS、JavaScript等语言来完成相应的课程要求
+- **编程语言**：主要使用：C++，CUDA，了解并基本会使用Python、Triton、C#、HTML、CSS、JavaScript等语言来完成相应的任务要求
 - **开发工具**：了解QT、IDEA、Verilog、Pycharm、Delphi 7等集成开发环境的基本使用方法来进行课程设计或者项目的开发，知道Navicat、Powerdesign等数据库管理工具的基本使用方法，了解Cisco Packet Tracer和wireshark等网络模拟和监听软件的基本使用，知道Enterprise Architect、Visio、starUML等软件建模工具的基本使用方法，会使用Proteus 8来进行电子信息电路的设计以及硬件接口电路的设计。
 - **管理工具**：会基本的Git语法来进行版本的控制
 - **办公软件**：熟练的使用Word来进行报告的攥写、使用PowerPoint来进行PPT汇报展示，基本了解Excel的处理方法
@@ -130,14 +156,15 @@ hide_table_of_contents: true
 
 ### 👨‍💼实践经历
 
-- 计算机学院SY23063班**团支书** 
+- 北航计算机学院BY应用一 **党支部书记**
 
-- 计算机与通信工程学院**社会实践中心主任**
-    - **在职经历**：
-        组织并策划本学院的社会实践活动，在任职期间，学院实践作品推国推省的数量达到了新的起点，参与人次达到近几年的最高水平，同时本人也因此获得**优秀学生干部标兵称号**
-- **班级组织委员**	
-    - **在职经历**：
-        一直帮助团支书完成团支部的相关工作，在本年度，本班级获得**校级优秀班集体的称号**
+- 北航计算机学院SY23063班 **团支书** 
+
+- 东大计算机与通信工程学院 **社会实践中心主任**
+
+- **班级组织委员**
+
 - **ACM俱乐部成员**  	
+
 
 <script type="text/javascript" src="https://rf.revolvermaps.com/0/0/8.js?i=5ct701dzzey&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33" async="async"></script>
